@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>获取省市列表</div>
+    <script src="./js/jquery-3.3.1.min.js"></script>
+    <script>
+        var param = {
+            regionCode: "111"
+        };
+        $.ajax({
+            type: "post",
+            url: "/api/getProvinceList",
+            data: JSON.stringify(param),
+            dataType: 'json',
+            async: true,
+            headers: {
+                'Content-Type':'application/json;charset=utf8',
+            },
+            success: function(res) {
+                console.log(res);
+            },
+            error: function(err) {
+                console.error(err);
+            }
+        })
+    </script>
+</body>
+</html>
